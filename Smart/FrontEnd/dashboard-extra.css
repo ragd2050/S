@@ -1,0 +1,614 @@
+/* =========================
+   SmartAgro – Dashboard UI
+   ملف dashboard-extra.css
+   ========================= */
+
+/* حجم الكونتينر الأساسي للداشبورد */
+.dashboard-section {
+  padding-top: 120px;
+}
+
+.dashboard-container {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* =========================
+   Sidebar
+   ========================= */
+#sidebar {
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.16);
+  border: 1px solid #e5e7eb;
+  position: sticky;
+  top: 110px;
+}
+
+.sidebar-btn {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #4b5563;
+  background: transparent;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.sidebar-btn i {
+  font-size: 1.05rem;
+}
+
+.sidebar-btn:hover {
+  background: #e5f9ee;
+  color: #166534;
+  transform: translateX(4px);
+}
+
+.sidebar-btn.active {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(22, 163, 74, 0.4);
+}
+
+/* =========================
+   Main content container
+   ========================= */
+#mainContent {
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
+  padding: 24px 26px 32px;
+  min-height: 520px;
+}
+
+/* يخلي (Dashboard / Plants / Devices / Alerts / History / Settings)
+   كلها بعرض ثابت في النص */
+#mainContent > .space-y-6 {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+/* أنيميشن بسيط */
+.fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   أزرار عامة
+   ========================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.btn i {
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(22, 163, 74, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(22, 163, 74, 0.55);
+}
+
+.btn-secondary {
+  background: #eef2ff;
+  color: #4c1d95;
+}
+
+.btn-secondary:hover {
+  background: #e0e7ff;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   بطاقات الإحصائيات العلوية
+   ========================= */
+.dashboard-top-row {
+  max-width: 1100px;
+  margin: 0 auto 18px;
+}
+
+.stat-card {
+  border-radius: 18px;
+  background: #ffffff;
+  padding: 18px 18px 16px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+  border: 1px solid #e5e7eb;
+}
+
+.stat-card p {
+  margin: 0;
+}
+
+/* =========================
+   Grid الرئيسي (الرسم + التنبيهات)
+   ========================= */
+.dashboard-main-grid {
+  max-width: 1100px;
+  margin: 0 auto 8px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.2fr); /* الرسم أعرض */
+  gap: 1.5rem;
+}
+
+
+/* ===== Settings Layout ===== */
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.settings-card {
+  /* نستخدم نفس ستايل dashboard-card لكن نخفّف الظل شوي لو حبيتي */
+}
+
+/* موبايل / شاشات أصغر */
+@media (max-width: 1024px) {
+  .settings-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .dashboard-main-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* بطاقات الداشبورد العامة (Dashboard فقط) */
+.dashboard-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 20px 22px 22px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
+  font-size: 0.9rem;
+}
+
+.dashboard-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.dashboard-card-subtitle {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+/* ===== Live Sensor Card (أول كرت في الشبكة) ===== */
+.dashboard-main-grid > .dashboard-card:first-child {
+  padding: 22px 24px 26px;
+}
+
+.dashboard-main-grid > .dashboard-card:first-child .chart-container {
+  margin-top: 10px;
+  padding: 14px 16px 10px;
+  border-radius: 18px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+}
+
+/* حجم الرسم البياني */
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 280px;      /* عدّليها لو حابة أطول */
+}
+
+#dashboardChart {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* =========================
+   Recent Alerts (يمين الرسم)
+   ========================= */
+.recent-alert-item {
+  border-radius: 14px;
+  padding: 10px 12px;
+  background: #f9fafb;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+}
+
+/* Badge عام */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ألوان التنبيهات حسب النوع */
+.alert-card.warning {
+  background: #FEF9C3;
+  border-left: 6px solid #FACC15;
+}
+.badge.warning {
+  background: rgba(250, 204, 21, 0.15);
+  color: #854d0e;
+}
+
+.alert-card.critical {
+  background: #FEE2E2;
+  border-left: 6px solid #EF4444;
+}
+.badge.critical {
+  background: rgba(239, 68, 68, 0.15);
+  color: #7f1d1d;
+}
+
+.alert-card.info {
+  background: #DBEAFE;
+  border-left: 6px solid #3B82F6;
+}
+.badge.info {
+  background: rgba(59, 130, 246, 0.15);
+  color: #1e3a8a;
+}
+
+.alert-card.success {
+  background: #DCFCE7;
+  border-left: 6px solid #22C55E;
+}
+.badge.success {
+  background: rgba(34, 197, 94, 0.15);
+  color: #14532d;
+}
+
+/* شكل عام لكرت التنبيه */
+.alert-card {
+  border-radius: 18px;
+  padding: 16px 20px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  display: block;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.alert-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+}
+
+/* =========================
+   بطاقات النباتات (Plants)
+   ========================= */
+.plant-card {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.16);
+  border: 1px solid #e5e7eb;
+}
+
+/* Progress bar */
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  border-radius: 9999px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  transition: width 0.3s ease;
+}
+
+.progress-fill.low {
+  background: #ef4444;
+}
+.progress-fill.medium {
+  background: #f59e0b;
+}
+.progress-fill.high {
+  background: #22c55e;
+}
+
+/* Status للنبات */
+.badge.healthy {
+  background: #dcfce7;
+  color: #166534;
+}
+.badge.warning {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+/* =========================
+   بطاقات الأجهزة (Devices)
+   ========================= */
+.device-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.14);
+  border: 1px solid #e5e7eb;
+}
+
+/* ACTIVE badge للجهاز */
+.badge.active {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+
+/* =========================
+   Alerts Page (القائمة الكاملة)
+   ========================= */
+.alert-card.low,
+.badge.low {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.alert-card.medium,
+.badge.medium {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.alert-card.high,
+.badge.high {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* =========================
+   Responsive tweaks
+   ========================= */
+@media (max-width: 1024px) {
+  #mainContent {
+    padding: 18px 16px 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    position: static;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .dashboard-section .flex {
+    flex-direction: column;
+  }
+
+  .dashboard-top-row,
+  .dashboard-main-grid {
+    max-width: 100%;
+  }
+}
+
+
+/* ===== Force Settings Page Cards to match Dashboard Cards ===== */
+
+#mainContent .space-y-6 > div {
+  background: #ffffff !important;
+  border-radius: 22px !important;
+  padding: 22px 26px !important;
+  border: 1px solid #e5e7eb !important;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12) !important;
+  font-family: "Poppins", sans-serif !important;
+}
+/* Grid layout for Settings */
+.settings-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 24px !important;
+  max-width: 1150px !important;
+  margin: 0 auto !important;
+}
+
+@media (max-width: 1024px) {
+  .settings-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Styling for Settings Inputs */
+.settings-grid input,
+.settings-grid select {
+  width: 100% !important;
+  padding: 10px 14px !important;
+  border-radius: 12px !important;
+  border: 1px solid #d1d5db !important;
+  font-size: 0.95rem !important;
+  outline: none !important;
+  background: #f9fafb !important;
+}
+
+.settings-grid h2 {
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 12px !important;
+  color: #14532d !important;
+}
+
+
+
+/* ===== Settings Page Layout & Style ===== */
+
+.settings-page {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.settings-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 10px;
+}
+
+@media (max-width: 1024px) {
+  .settings-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.settings-card {
+  /* already uses .dashboard-card base styles */
+  font-family: "Poppins", sans-serif;
+}
+
+.settings-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #14532d;
+  margin-bottom: 16px;
+}
+
+.settings-group {
+  margin-bottom: 14px;
+}
+
+.settings-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4b5563;
+  margin-bottom: 4px;
+}
+
+.settings-input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+  outline: none;
+  background: #f9fafb;
+}
+
+.settings-input:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
+}
+
+.settings-btn {
+  width: 100%;
+  margin-top: 6px;
+}
+
+/* Toggle rows */
+.settings-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.settings-toggle-text {
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+
+/* ===== iOS-style Toggle Switch (Settings) ===== */
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #e5e7eb;              /* رمادي لما يكون مغلق */
+  border-radius: 999px;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.toggle-slider::before {
+  content: "";
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  transition: transform 0.25s ease;
+}
+
+/* لما يكون الـ checkbox مفعَّل ✅ */
+.toggle-switch input:checked + .toggle-slider {
+  background: #22c55e;              /* أخضر مثل زر الواي فاي */
+  box-shadow: 0 0 0 2px rgba(34,197,94,0.25);
+}
+
+.toggle-switch input:checked + .toggle-slider::before {
+  transform: translateX(22px);      /* تتحرك الكرة لليمين */
+}
+
+/* فوكس بالكبورد */
+.toggle-switch input:focus + .toggle-slider {
+  box-shadow: 0 0 0 2px rgba(34,197,94,0.35);
+}
+
+
+
+/* Force Dashboard background same as Login / Welcome */
+html,
+body {
+  background: linear-gradient(
+    135deg,
+    #d8f3dc 0%,
+    #b7e4c7 25%,
+    #95d5b2 50%,
+    #74c69d 75%,
+    #52b788 100%
+  ) !important;
+}
+
+/* نتأكد إن كونتينر الداشبورد شفاف وما يغطي التدرّج */
+.dashboard-section {
+  background: transparent !important;
+}

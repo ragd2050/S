@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartAgro - Smart Dashboard</title>
+
+  <!-- Tailwind utilities (للشبكة والمسافات فقط) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Main site styles -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Extra dashboard styles -->
+  <link rel="stylesheet" href="dashboard-extra.css">
+</head>
+
+<body class="user-home-page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo" onclick="window.location.href='index.html'">🌱 SmartAgro</div>
+    <div class="header-right">
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="#" onclick="showAbout(); return false;">About</a>
+        <a href="#" onclick="showContact(); return false;">Contact</a>
+        <a href="dashboard.html">Dashboard</a>
+      </nav>
+
+      <div class="user-account">
+        <div class="user-icon" id="userIcon" title="Click to view account menu">RB</div>
+        <div class="dropdown-menu" id="dropdownMenu">
+          <a href="#"><i class="fas fa-user"></i> My Profile</a>
+          <a href="#"><i class="fas fa-cog"></i> Settings</a>
+          <a href="dashboard.html"><i class="fas fa-seedling"></i> My Plants</a>
+          <div class="dropdown-divider"></div>
+          <a href="#"><i class="fas fa-question-circle"></i> Help & Support</a>
+          <a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- DASHBOARD LAYOUT -->
+  <section class="dashboard-section" style="padding-top:120px;">
+    <div class="dashboard-container">
+      <div class="flex">
+
+        <!-- Sidebar -->
+        <aside id="sidebar" class="w-64 bg-white shadow-lg h-full rounded-2xl mr-6 p-4">
+          <div class="p-2 space-y-2">
+
+            <button class="sidebar-btn active w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition" data-page="dashboard">
+              <i class="fas fa-home w-5"></i>
+              <span>Dashboard</span>
+            </button>
+
+            <button class="sidebar-btn w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition" data-page="plants">
+              <i class="fas fa-leaf w-5"></i>
+              <span>My Plants</span>
+            </button>
+
+            <button class="sidebar-btn w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition" data-page="devices">
+              <i class="fas fa-microchip w-5"></i>
+              <span>Devices</span>
+            </button>
+
+            <button class="sidebar-btn w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition" data-page="alerts">
+              <i class="fas fa-exclamation-triangle w-5"></i>
+              <span>Alerts</span>
+            </button>
+
+            <button class="sidebar-btn w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition" data-page="history">
+              <i class="fas fa-chart-line w-5"></i>
+              <span>History</span>
+            </button>
+
+            <button class="sidebar-btn w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition" data-page="settings">
+              <i class="fas fa-cog w-5"></i>
+              <span>Settings</span>
+            </button>
+
+          </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="mainContent" class="flex-1 p-4 bg-white/70 rounded-2xl shadow-md">
+          <!-- المحتوى يتغير ديناميكياً من pages.js -->
+        </main>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      ©️ 2025 SmartAgro. All rights reserved. |
+      Logged in as <span id="userName" class="user-name-text">User</span>
+    </p>
+  </footer>
+
+  <!-- ===== JS libs and app scripts (مرة واحدة وبالترتيب) ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- فيه login / API helpers / اسم المستخدم وغيره -->
+  <script src="script.js"></script>
+
+  <!-- بيانات وهمية / قوالب -->
+  <script src="data.js"></script>
+
+  <!-- التكامل مع الباك إند (الكود الأخير اللي عدّلناه) -->
+  <script src="dashboard-integration.js"></script>
+
+  <!-- صفحات الـ dashboard (renderPageContent, navigateToPage, …) -->
+  <script src="pages.js"></script>
+
+  <!-- تفعيل الأزرار والتنقل في الـ sidebar وغيره -->
+  <script src="app.js"></script>
+
+  <!-- سكربت بسيط لضبط اسم المستخدم والأحرف في الدائرة -->
+  <script>
+    // نقرأ الاسم اللي حفظناه في localStorage
+    const user = localStorage.getItem("saUsername") || "User";
+
+    // الدائرة في الهيدر
+    const icon = document.getElementById("userIcon");
+    if (icon) {
+      const initials = user.substring(0, 2).toUpperCase();
+      icon.textContent = initials;
+    }
+
+    // النص في الفوتر
+    const nameText = document.getElementById("userName");
+    if (nameText) {
+      nameText.textContent = user;
+    }
+  </script>
+
+</body>
+</html>

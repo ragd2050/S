@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartAgro - Login</title>
+  
+  <!-- Fonts -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" as="style">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-complete.css">
+</head>
+
+<body class="login-page">
+
+  <!-- Skip to content for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- HEADER SECTION -->
+  <header>
+    <div class="logo" 
+     onclick="window.location.href='index.html'" 
+     style="color: #2d6a4f; font-weight: 800; font-size: 1.8rem;">
+    🌱 SmartAgro
+</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#" onclick="showAbout(); return false;">About</a>
+      <a href="#" onclick="showContact(); return false;">Contact</a>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content">
+    <div class="container" id="container">
+      
+      <!-- SIGN UP FORM -->
+      <div class="form-container sign-up-container">
+        <form id="signupForm" name="signupForm">
+          <h1>Create Account</h1>
+
+          <!-- Username Input -->
+          <input 
+            type="text" 
+            name="username" 
+            placeholder="Username" 
+            required
+            autocomplete="username"
+            aria-label="Username"
+          >
+          <div class="red-text"></div>
+
+          <!-- Email Input -->
+          <input 
+            type="email" 
+            name="email" 
+            id="signup_email"
+            placeholder="Email" 
+            required
+            autocomplete="email"
+            aria-label="Email address"
+          >
+          <div class="red-text"></div>
+
+          <!-- Password Input -->
+          <div class="password-container">
+            <input 
+              type="password" 
+              name="password" 
+              id="signup_password" 
+              placeholder="Password" 
+              required
+              autocomplete="new-password"
+              aria-label="Password"
+            >
+            <span 
+              class="toggle-password" 
+              onclick="togglePassword('signup_password', this)"
+              aria-label="Toggle password visibility"
+              tabindex="0"
+            >
+              <i class="fas fa-eye"></i>
+            </span>
+          </div>
+          <div class="red-text" id="password-error"></div>
+          <div class="password-strength" id="password-strength"></div>
+
+          
+          <!-- Submit Button -->
+          <button type="submit" name="signup" id="signup-btn">
+            Sign Up
+          </button>
+
+          <!-- Social Login Options -->
+          <span class="social-text">Or sign up with</span>
+          <div class="social-icons">
+            <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Sign up with Google">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Sign up with Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Sign up with Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Sign up with X (Twitter)">
+              <i class="fa-solid fa-x"></i>
+            </a>
+          </div>
+        </form>
+      </div>
+
+      <!-- SIGN IN FORM -->
+      <div class="form-container sign-in-container">
+        <form id="signinForm" name="signinForm">
+          <h1>Sign In</h1>
+
+          <!-- Email Input -->
+          <input 
+            type="email" 
+            name="signin_email"
+            id="signin_email" 
+            placeholder="Email" 
+            required
+            autocomplete="email"
+            aria-label="Email address"
+          >
+          <div class="red-text"></div>
+
+          <!-- Password Input -->
+          <div class="password-container">
+            <input 
+              type="password" 
+              name="signin_password" 
+              id="signin_password" 
+              placeholder="Password" 
+              required
+              autocomplete="current-password"
+              aria-label="Password"
+            >
+            <span 
+              class="toggle-password" 
+              onclick="togglePassword('signin_password', this)"
+              aria-label="Toggle password visibility"
+              tabindex="0"
+            >
+              <i class="fas fa-eye"></i>
+            </span>
+          </div>
+          <div class="red-text" id="signin-password-error"></div>
+
+          <!-- Remember Me -->
+          <label class="remember-me">
+            <input type="checkbox" id="remember-me">
+            <span>Remember me</span>
+          </label>
+
+          <!-- Forgot Password Link -->
+          <a href="#" class="forgot-password-link">
+            Forgot Your Password?
+          </a>
+
+          <!-- Submit Button -->
+          <button type="submit" name="signin" id="signin-btn">
+            Sign In
+          </button>
+
+          <!-- Social Login Options -->
+          <span class="social-text">Or sign in with</span>
+          <div class="social-icons">
+            <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Sign in with Google">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Sign in with Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Sign in with Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Sign in with X (Twitter)">
+              <i class="fa-solid fa-x"></i>
+            </a>
+          </div>
+        </form>
+      </div>
+
+      <!-- OVERLAY PANELS -->
+      <div class="overlay-container">
+        <div class="overlay">
+          
+          <!-- Left Panel (Welcome Back) -->
+          <div class="overlay-panel overlay-left">
+            <h1>Welcome Back!</h1>
+            <p>Enter your email and password to sign in</p>
+            <button class="ghost" id="signIn">
+              Sign In
+            </button>
+          </div>
+
+          <!-- Right Panel (Hello) -->
+          <div class="overlay-panel overlay-right">
+            <h1>Hello!</h1>
+            <p>Enter your details to create an account</p>
+            <button class="ghost" id="signUp">
+              Sign Up
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER SECTION -->
+  <footer>
+    <p>
+      © 2025 SmartAgro. All rights reserved. | 
+      Designed with 💚 for sustainable agriculture
+    </p>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script src="script.js"></script>
+
+</body>
+</html>
